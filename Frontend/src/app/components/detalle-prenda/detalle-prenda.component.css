@@ -1,0 +1,59 @@
+.contenido {
+    /* border: 2px black solid; */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.prenda {
+    /* border: 2px green solid; */
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    /* border-bottom: 2px gray solid; */
+    /* border-top: 2px gray solid; */
+}
+
+.imagen {
+    /* border: 2px red solid; */
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 40%; */
+    /* background-color: rgb(231, 231, 231); */
+    /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
+
+.informacion {
+    /* border: 2px blue solid; */
+    /* width: 400px; */
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.botones button {
+    width: 45%;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(23, 46, 65);
+    border: none;
+    color: white;
+}
