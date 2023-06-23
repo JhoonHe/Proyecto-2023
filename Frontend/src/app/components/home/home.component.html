@@ -1,0 +1,17 @@
+<div class="contenido">
+
+    <div class="slider"></div>
+
+    <h2>Prendas</h2>
+
+    <div class="prendas">
+        <div class="prenda" *ngFor="let prenda of prendas">
+            <div class="elementos">
+                <h3>{{prenda.name}}</h3>
+                <img [src]="prenda.url">
+                <input type="submit">
+            </div>
+        </div>
+    </div>
+    <!-- <p>{{prenda.precio}}</p> -->
+</div>

@@ -1,0 +1,111 @@
+nav {
+    /* border: 2px black solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0 10px 0;
+    gap: 40px;
+    border-bottom: 2px rgb(23, 65, 25) solid;
+}
+
+nav ul {
+    /* border: 2px red solid; */
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    /* justify-content: space-between; */
+}
+
+li {
+    display: flex;
+    height: 30px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* border: 2px black solid; */
+}
+
+li a:hover {
+    background-color: rgb(23, 65, 44);
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.elementos {
+    display: flex;
+    /* border: 2px black solid; */
+    justify-content: space-evenly;
+    padding: 0 20px;
+}
+
+.elementos .vender {
+    background-color: rgb(23, 65, 44);
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.botones {
+    display: flex;
+    gap: 20px;
+}
+
+.botones a {
+    background-color: rgb(23, 46, 65);
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.busqueda {
+    /* border: 2px black solid; */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.busqueda input {
+    border: none;
+    border-bottom: 1px black solid;
+    height: 20px;
+    width: 300px;
+}
+
+.logo {
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

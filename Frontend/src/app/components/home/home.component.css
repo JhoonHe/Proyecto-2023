@@ -1,0 +1,80 @@
+.contenido {
+    /* border: 2px black solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 100px 0;
+    gap: 50px;
+}
+
+.prendas {
+    /* border: 2px green solid; */
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 0px;
+}
+
+.prenda {
+    border: 2px rgb(226, 224, 224) solid;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.prenda:hover {
+    opacity: 0.8;
+}
+
+.prenda:hover input {
+    background-color: rgb(23, 65, 44);
+}
+
+.prenda img {
+    width: 450;
+    height: 150px;
+}
+
+.elementos {
+    /* border: 2px yellow solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background-color: rgb(23, 46, 65);
+    border: none;
+    height: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 50px;
+    color: rgb(5, 29, 16);
+}
+
+.slider {
+    width: 95%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(219, 218, 218);
+    color: rgb(179, 179, 179);
+    font-size: 100px;
+    background: url(../../../assets/img/slider.jpg) no-repeat;
+    background-size: cover;
+}

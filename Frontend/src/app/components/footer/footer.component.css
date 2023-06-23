@@ -1,0 +1,34 @@
+footer {
+    background-color: rgb(76, 143, 109);
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+    color: white;
+}
+
+table {
+    /* border: 2px black solid; */
+    width: 50%;
+    line-height: 30px;
+}
+
+tr {
+    text-align: left;
+    border: 2px black solid;
+}
+
+.redes {
+    display: flex;
+    gap: 20px;
+}
+
+.redes i {
+    font-size: 40px;
+}
+
+a {
+    color: white;
+}
