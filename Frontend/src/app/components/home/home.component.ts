@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   prendas: any;
 
-  constructor(private client: ClientService) {
+  constructor(private client: ClientService, private router: Router) {
 
   }
 
@@ -25,5 +26,10 @@ export class HomeComponent implements OnInit {
 
       })
     );
+  }
+
+  verPrenda(id: number) {
+    console.log(id);
+    this.router.navigate(['/detalle-prenda', id]);
   }
 }

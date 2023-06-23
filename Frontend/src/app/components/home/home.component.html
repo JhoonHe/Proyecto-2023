@@ -8,8 +8,10 @@
         <div class="prenda" *ngFor="let prenda of prendas">
             <div class="elementos">
                 <h3>{{prenda.name}}</h3>
+                <!-- <p>{{prenda.id}}</p> -->
                 <img [src]="prenda.url">
-                <input type="submit">
+                <!-- <input type="submit"> -->
+                <button (click)="verPrenda(prenda.id)">Ver prenda</button>
             </div>
         </div>
     </div>

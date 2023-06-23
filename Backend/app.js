@@ -143,16 +143,39 @@ app.post('/login', function (req, res) {
 
 app.get("/productos", (req, res) => {
 
-    conexion.query('SELECT name, url FROM prendas', (error, resultado) => {
+    conexion.query('SELECT * FROM prendas', (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
         }
 
-        let prendas = resultado.map(row => ({
-            name: row.name,
-            price: row.price,
-            url: row.url
+        let prendas = resultado.map((atributo) => ({
+            id: atributo.id,
+            name: atributo.name,
+            price: atributo.price,
+            url: atributo.url
+
+        }))
+
+        return res.status(200).json({ prendas: prendas });
+    })
+})
+
+app.get("/detalle-prenda/:id", (req, res) => {
+
+    id = req.params.id;
+
+    conexion.query('SELECT * FROM prendas where id = ?', [id], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let prendas = resultado.map((atributo) => ({
+            id: atributo.id,
+            name: atributo.name,
+            price: atributo.price,
+            url: atributo.url
 
         }))
 
