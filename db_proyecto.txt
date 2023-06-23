@@ -4,9 +4,16 @@ use db_proyecto;
 
 drop database db_proyecto;
 
-create table usuario (email varchar(30) primary key, name varchar(30), passw varchar(30));
+CREATE TABLE usuario (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(30) UNIQUE,
+  name VARCHAR(30),
+  passw VARCHAR(30)
+);
 
 create table prendas (id int auto_increment primary key, name varchar(30), price float, url text);
+
+truncate usuario;
 
 insert into prendas (name, price, url) values ("Pantalon", 20000, "https://www.pngmart.com/files/6/Trousers-PNG-Transparent-Image.png");
 insert into prendas (name, price, url) values ("Gorra", 15000, "https://static.vecteezy.com/system/resources/previews/008/847/346/original/isolated-black-cap-front-view-free-png.png");
@@ -22,4 +29,5 @@ insert into prendas (name, price, url) values ("Chaqueta", 120000, "https://www.
 
 select * from usuario;
 select * from prendas;
+
 

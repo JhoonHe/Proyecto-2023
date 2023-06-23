@@ -99,7 +99,7 @@ app.post('/login', function (req, res) {
 
     console.log(email, password);
 
-    conexion.query("SELECT passw, name FROM usuario WHERE email = ?", [email], (error, results) => {
+    conexion.query("SELECT * FROM usuario WHERE email = ?", [email], (error, results) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al iniciar sesión" });
@@ -111,11 +111,12 @@ app.post('/login', function (req, res) {
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
 
+        const id = results[0].id;
         const storedPassword = results[0].passw;
         const name = results[0].name;
 
         if (password === storedPassword) {
-            return res.status(200).json({ "Status": "Inicio de sesión exitoso", "Nombre": name });
+            return res.status(200).json({ "Status": "Inicio de sesión exitoso", "Nombre": name, id: id });
         } else {
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
@@ -180,5 +181,25 @@ app.get("/detalle-prenda/:id", (req, res) => {
         }))
 
         return res.status(200).json({ prendas: prendas });
+    })
+})
+
+app.get("/detalle-usuario/:id", (req, res) => {
+
+    id = req.params.id;
+
+    conexion.query('SELECT * FROM usuario where id = ?', [id], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let usuario = resultado.map((atributo) => ({
+            id: atributo.id,
+            name: atributo.name,
+            email: atributo.email
+        }))
+
+        return res.status(200).json({ usuario: usuario });
     })
 })

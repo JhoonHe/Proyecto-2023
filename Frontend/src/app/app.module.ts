@@ -12,6 +12,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DetallePrendaComponent } from './components/detalle-prenda/detalle-prenda.component';
 import { DetalleCompraComponent } from './components/detalle-compra/detalle-compra.component';
+import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-usuario.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DetalleCompraComponent } from './components/detalle-compra/detalle-comp
     NavComponent,
     FooterComponent,
     DetallePrendaComponent,
-    DetalleCompraComponent
+    DetalleCompraComponent,
+    DetalleUsuarioComponent
   ],
   imports: [
     BrowserModule,

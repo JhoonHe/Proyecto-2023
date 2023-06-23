@@ -38,11 +38,19 @@ export class InicioComponent implements OnInit {
           (response: any) => {
             // console.log(response);
 
+            // this.mensaje = response.Status;
+            // console.log(this.mensaje);
+            // this.router.navigate(['']);
+
+            let id: number;
+
+            id = response.id;
+
             setTimeout(() => {
-              // this.mensaje = response.Status;
-              // console.log(this.mensaje);
-              this.router.navigate(['']);
+              this.router.navigate(['/detalle-usuario', id]);
             }, 3000)
+
+            // console.log("aaa" + id);
 
           },
           (error: any) => {
@@ -59,6 +67,11 @@ export class InicioComponent implements OnInit {
       // console.log('Verifique sus datos');
       this.mensaje = "Verifique sus datos";
     }
+  }
+
+  obtenerEmail() {
+    console.log(this.form.value.email);
+
   }
 
 }
