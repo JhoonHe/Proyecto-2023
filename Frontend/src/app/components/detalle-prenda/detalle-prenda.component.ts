@@ -10,8 +10,8 @@ import { ClientService } from 'src/app/services/client.service';
 export class DetallePrendaComponent implements OnInit {
 
   idPrenda: number;
-  valorIdPrenda: number;
   prenda: any;
+  // valorIdPrenda: number;
 
   constructor(private routeActivate: ActivatedRoute, private client: ClientService) {
 
@@ -19,6 +19,8 @@ export class DetallePrendaComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPrenda = this.routeActivate.snapshot.params["id"];
+    console.log("ID" + this.idPrenda);
+
     this.client.getRequest(`http://localhost:10101/detalle-prenda/${this.idPrenda}`).subscribe(
       ((response: any) => {
         // console.log(response);
@@ -27,6 +29,7 @@ export class DetallePrendaComponent implements OnInit {
       }),
       ((error: any) => {
         console.log(error.error.Status);
+        console.log(error);
 
       })
     );

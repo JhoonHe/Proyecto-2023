@@ -21,8 +21,8 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      correo: ['', Validators.required],
+      clave: ['', Validators.required]
     });
   }
 
@@ -32,8 +32,8 @@ export class InicioComponent implements OnInit {
       this.formulario = false
       this.client.postRequest('http://localhost:10101/login',
         {
-          email: this.form.value.email,
-          password: this.form.value.password
+          correo: this.form.value.correo,
+          clave: this.form.value.clave
         }, undefined, undefined).subscribe(
           (response: any) => {
             // console.log(response);

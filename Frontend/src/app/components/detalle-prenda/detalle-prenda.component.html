@@ -1,9 +1,9 @@
 <div class="contenido">
     <div class="prenda" *ngFor="let prenda of prenda">
-        <div class="imagen"><img [src]="prenda.url" alt="camiseta"></div>
+        <div class="imagen"><img [src]="prenda.imagen" alt="camiseta"></div>
         <div class="informacion">
-            <h2><strong>{{prenda.name}}</strong></h2>
-            <p><strong>Precio prenda:</strong> $ {{prenda.price}}</p>
+            <h2><strong>{{prenda.nombre}}</strong></h2>
+            <p><strong>Precio prenda:</strong> $ {{prenda.precio}}</p>
             <!-- <p><strong>Talla:</strong> L</p> -->
             <!-- <p><strong>Estado de la prenda:</strong> 10/10</p> -->
             <div class="botones">

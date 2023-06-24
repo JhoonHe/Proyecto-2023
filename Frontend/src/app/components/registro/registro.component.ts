@@ -20,9 +20,9 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     localStorage.setItem("token", "ahsdgjfdagjsdfasgdjsadgsa");
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      nombre: ['', Validators.required],
+      correo: ['', Validators.required],
+      clave: ['', Validators.required]
     });
   }
 
@@ -32,9 +32,9 @@ export class RegistroComponent implements OnInit {
       this.formulario = false
       this.client.postRequest("http://localhost:10101/register",
         {
-          name: this.form.value.name,
-          email: this.form.value.email,
-          password: this.form.value.password
+          nombre: this.form.value.nombre,
+          correo: this.form.value.correo,
+          clave: this.form.value.clave
         }, undefined, { "Authorization": `Bearer ${localStorage.getItem("token")}` }).subscribe(
           ((response: any) => {
             // console.log(response);

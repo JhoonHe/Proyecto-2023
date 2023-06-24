@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   prendas: any;
+  dama: string = "dama";
+  hombre: string = "hombre";
+  ninos: string = "niños";
 
   constructor(private client: ClientService, private router: Router) {
 
@@ -28,8 +31,14 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  verPrenda(id: number) {
-    console.log(id);
-    this.router.navigate(['/detalle-prenda', id]);
+  verPrenda(id_prenda: number) {
+    console.log(id_prenda);
+    this.router.navigate(['/detalle-prenda', id_prenda]);
+  }
+
+  categoria(categoria: string) {
+    console.log(categoria);
+
+    this.router.navigate(['/categoria', categoria]);
   }
 }

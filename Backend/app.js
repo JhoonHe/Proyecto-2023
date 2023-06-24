@@ -41,13 +41,13 @@ conexion.connect((error) => {
 // });
 
 app.post('/register', function (req, res) {
-    let name = req.body.name;
-    let password = req.body.password;
-    let email = req.body.email;
+    let nombre = req.body.nombre;
+    let clave = req.body.clave;
+    let correo = req.body.correo;
 
-    console.log(name, password, email, req.header("Authorization"));
+    // console.log(name, password, email, req.header("Authorization"));
 
-    conexion.query("INSERT INTO usuario (name, passw, email) VALUES (?,?,?)", [name, password, email], (error) => {
+    conexion.query("INSERT INTO usuario (nombre, clave, correo) VALUES (?,?,?)", [nombre, clave, correo], (error) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al registrar" });
@@ -94,29 +94,29 @@ app.post('/register', function (req, res) {
 // });
 
 app.post('/login', function (req, res) {
-    let email = req.body.email;
-    let password = req.body.password;
+    let correo = req.body.correo;
+    let clave = req.body.clave;
 
-    console.log(email, password);
+    // console.log(email, password);
 
-    conexion.query("SELECT * FROM usuario WHERE email = ?", [email], (error, results) => {
+    conexion.query("SELECT * FROM usuario WHERE correo = ?", [correo], (error, results) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al iniciar sesión" });
         }
 
-        console.log(results.length);
+        console.log("longitud" + results.length);
 
         if (results.length === 0) {
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
 
-        const id = results[0].id;
-        const storedPassword = results[0].passw;
-        const name = results[0].name;
+        let id = results[0].id;
+        let claveAlmacenada = results[0].clave;
+        let nombre = results[0].nombre;
 
-        if (password === storedPassword) {
-            return res.status(200).json({ "Status": "Inicio de sesión exitoso", "Nombre": name, id: id });
+        if (clave === claveAlmacenada) {
+            return res.status(200).json({ "Status": "Inicio de sesión exitoso", "Nombre": nombre, id: id });
         } else {
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
@@ -151,10 +151,10 @@ app.get("/productos", (req, res) => {
         }
 
         let prendas = resultado.map((atributo) => ({
-            id: atributo.id,
-            name: atributo.name,
-            price: atributo.price,
-            url: atributo.url
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen
 
         }))
 
@@ -166,17 +166,17 @@ app.get("/detalle-prenda/:id", (req, res) => {
 
     id = req.params.id;
 
-    conexion.query('SELECT * FROM prendas where id = ?', [id], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas where id_prenda = ?', [id], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
         }
 
         let prendas = resultado.map((atributo) => ({
-            id: atributo.id,
-            name: atributo.name,
-            price: atributo.price,
-            url: atributo.url
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen
 
         }))
 
@@ -196,10 +196,32 @@ app.get("/detalle-usuario/:id", (req, res) => {
 
         let usuario = resultado.map((atributo) => ({
             id: atributo.id,
-            name: atributo.name,
-            email: atributo.email
+            name: atributo.nombre,
+            email: atributo.correo
         }))
 
         return res.status(200).json({ usuario: usuario });
     })
+})
+
+app.get("/categoria/:categoria", (req, res) => {
+
+    categoria = req.params.categoria;
+
+    console.log(categoria);
+
+    // conexion.query('SELECT * FROM prenda where categoria = ?', [categoria], (error, resultado) => {
+    //     if (error) {
+    //         console.error(error);
+    //         return res.status(500).json({ error: 'Error en el servidor' });
+    //     }
+
+    //     let prendas = resultado.map((atributo) => ({
+    //         // id: atributo.id,
+    //         // name: atributo.name,
+    //         // email: atributo.email
+    //     }))
+
+    //     return res.status(200).json({ prendas: prendas });
+    // })
 })

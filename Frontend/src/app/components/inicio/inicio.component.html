@@ -12,8 +12,8 @@
         </div>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <input type="email" formControlName="email" required placeholder="Correo">
-            <input type="password" formControlName="password" required placeholder="Contraseña">
+            <input type="email" formControlName="correo" required placeholder="Correo">
+            <input type="password" formControlName="clave" required placeholder="Contraseña">
             <button type="submit">Iniciar sesión</button>
             <p class="mensaje">{{mensaje}}</p>
         </form>

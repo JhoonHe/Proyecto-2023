@@ -1,33 +1,51 @@
+/*Creacion de BD*/
 create database db_proyecto;
-
 use db_proyecto;
-
 drop database db_proyecto;
 
+/*Creacion de tablas*/
 CREATE TABLE usuario (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  email VARCHAR(30) UNIQUE,
-  name VARCHAR(30),
-  passw VARCHAR(30)
+  correo VARCHAR(30) UNIQUE,
+  nombre VARCHAR(30),
+  clave VARCHAR(30)
 );
+    
+  create table categoria (
+    nombre_Categoria varchar (20) primary key
+	);
+    
+create table categoria_Prenda (
+	id_categoria_Prenda int  auto_increment primary key,
+	nombre varchar (30));
+    
+    create table prendas(
+	id_prenda int auto_increment primary key,
+	nombre varchar(30),
+    precio float,
+    imagen text,
+    talla varchar (10),
+    color varchar(20),
+    descripcion varchar (150),
+    estado int,
+    disponible boolean,
+    nombre_Categoria varchar (20), foreign key (nombre_Categoria) references categoria (nombre_Categoria),
+    id_categoria_Prenda int, foreign key (id_categoria_Prenda) references categoria_Prenda (id_categoria_Prenda)
+    );
+    
+insert into categoria values ("Dama");
+insert into categoria values ("Caballero");
+insert into categoria values ("Niños");
 
-create table prendas (id int auto_increment primary key, name varchar(30), price float, url text);
-
-truncate usuario;
-
-insert into prendas (name, price, url) values ("Pantalon", 20000, "https://www.pngmart.com/files/6/Trousers-PNG-Transparent-Image.png");
-insert into prendas (name, price, url) values ("Gorra", 15000, "https://static.vecteezy.com/system/resources/previews/008/847/346/original/isolated-black-cap-front-view-free-png.png");
-insert into prendas (name, price, url) values ("Pantalon", 50000, "https://assets.closeando.com/assets/products/c5d20ea20823993e38dcfd45ca54f487/VQ2AhSKb2kVdUMyLtxPxwxNnnFV98RJkfajqmlFT.jpg");
-insert into prendas (name, price, url) values ("Camiseta", 20000, "https://upload.wikimedia.org/wikipedia/commons/6/60/CamisetaRojaTrans.png");
-insert into prendas (name, price, url) values ("Bermuda", 40000, "https://cdn.coordiutil.com/imagen-bermuda_tipo_cargo_en_dril_regular_fit_five_forty-2315193-0-0-0-100.jpg");
-insert into prendas (name, price, url) values ("Sudadera", 70000, "https://www.playerasmark.com/app/assets/media/2017/10/sudadera.png");
-insert into prendas (name, price, url) values ("Camiseta", 20000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHy8-7UsAldXwOHEmyhETiF42uOSyopMs9uA&usqp=CAU");
-insert into prendas (name, price, url) values ("Zapatos", 100000, "https://static.vecteezy.com/system/resources/thumbnails/009/664/903/small/3d-render-sport-shoes-illustration-png.png");
-insert into prendas (name, price, url) values ("Camisa", 30000, "https://png.pngtree.com/png-clipart/20211116/original/pngtree-mens-shirts-clothes-cotton-fabrics-warm-wearing-brand-png-image_6933128.png");
-insert into prendas (name, price, url) values ("Chaqueta", 120000, "https://www.pngplay.com/wp-content/uploads/4/Leather-Jacket-PNG-Images-HD.png");
-
-
+insert into categoria_Prenda (nombre) values ("Camiseta");
+insert into categoria_Prenda (nombre) values ("Pantalon");
+insert into categoria_Prenda (nombre) values ("Zapatos");
+insert into categoria_Prenda (nombre) values ("Sueter");
+insert into categoria_Prenda (nombre) values ("Vestido");
+insert into categoria_Prenda (nombre) values ("Accesorios");
+    
+insert into prendas (nombre,precio,imagen,talla,color,descripcion,estado,disponible, nombre_Categoria,id_categoria_Prenda)values ("Nike Air", "30000","https://res.cloudinary.com/dpwihnxve/image/upload/v1687636312/Defaulth/Hombre/nike-azules_zv5fdw.png", "40", "Azul","Tennis En Excelente Estado", 10,true,"Caballero",3);
+    
 select * from usuario;
 select * from prendas;
-
 
