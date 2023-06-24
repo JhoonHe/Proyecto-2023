@@ -1,1 +1,13 @@
-<p>categoria works!</p>
+<div class="contenido">
+    <div class="prendas">
+        <div class="prenda" *ngFor="let prenda of prendas">
+            <div class="elementos">
+                <h3>{{prenda.nombre}}</h3>
+                <!-- <p>{{prenda.id}}</p> -->
+                <img [src]="prenda.imagen">
+                <!-- <input type="submit"> -->
+                <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+            </div>
+        </div>
+    </div>
+</div>

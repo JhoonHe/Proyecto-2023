@@ -32,4 +32,10 @@ export class CategoriaComponent {
       })
     );
   }
+
+  verPrenda(id_prenda: number) {
+    console.log(id_prenda);
+    this.router.navigate(['/detalle-prenda', id_prenda]);
+  }
+
 }

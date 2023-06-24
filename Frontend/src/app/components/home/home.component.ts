@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   prendas: any;
   dama: string = "dama";
-  hombre: string = "hombre";
+  hombre: string = "Caballero";
   ninos: string = "niños";
 
   constructor(private client: ClientService, private router: Router) {

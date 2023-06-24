@@ -210,18 +210,20 @@ app.get("/categoria/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    // conexion.query('SELECT * FROM prenda where categoria = ?', [categoria], (error, resultado) => {
-    //     if (error) {
-    //         console.error(error);
-    //         return res.status(500).json({ error: 'Error en el servidor' });
-    //     }
+    conexion.query('SELECT * FROM prendas where nombre_Categoria = ?', [categoria], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
 
-    //     let prendas = resultado.map((atributo) => ({
-    //         // id: atributo.id,
-    //         // name: atributo.name,
-    //         // email: atributo.email
-    //     }))
+        let prendas = resultado.map((atributo) => ({
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen
 
-    //     return res.status(200).json({ prendas: prendas });
-    // })
+        }));
+
+        return res.status(200).json({ prendas: prendas });
+    })
 })
