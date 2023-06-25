@@ -18,7 +18,7 @@ app.listen(10101, () => {
 let conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1234',
+    password: 'alejo123abc..',
     database: 'db_proyecto'
 });
 

@@ -4,12 +4,16 @@
 
     <h2>Prendas</h2>
 
-    <div class="prendas">
+    <div class="prendas" >
         <div class="prenda" *ngFor="let prenda of prendas">
+            <div ></div>
             <div class="elementos">
                 <h3>{{prenda.nombre}}</h3>
                 <!-- <p>{{prenda.id}}</p> -->
-                <img [src]="prenda.imagen">
+                <div class="image">
+                    <img [src]="prenda.imagen">
+                </div>
+                
                 <!-- <input type="submit"> -->
                 <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
             </div>
