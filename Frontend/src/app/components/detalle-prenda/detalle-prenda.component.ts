@@ -1,14 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
-
-@Component({
+import { NgModule } from '@angular/core';
+@Component(
+  
+  {
+    
   selector: 'app-detalle-prenda',
   templateUrl: './detalle-prenda.component.html',
-  styleUrls: ['./detalle-prenda.component.css']
-})
+  styleUrls: ['./detalle-prenda.component.css'],
+
+}
+
+)
 export class DetallePrendaComponent implements OnInit {
 
+  
   idPrenda: number;
   prenda: any;
   // valorIdPrenda: number;

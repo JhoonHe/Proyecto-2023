@@ -1,3 +1,11 @@
+.capa{
+    width: 100%;
+    height: 70vh;
+    background: url("https://images5.alphacoders.com/130/1306752.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .contenido{
     margin: 50px 50px;
     width: 100%;
@@ -5,25 +13,30 @@
     align-items: center;
     justify-content: center;
      height: 60vh;
-     gap: 20px;
+     /* gap: 20px; */
+     color: wheat
+
 }
 
 .c-img{
     width: 40%;
     height: 100%;
-    background-color:rgb(230, 230, 230);
-    border-top-right-radius: 300px;
-    border-bottom-right-radius: 300px;
+    background-color:#d6d6d6a1 ; 
+    /* border-top-right-radius: 300px; */
+    /* border-bottom-right-radius: 300px; */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: solid 1px green;
-   
+    justify-content: center;  
+      
 }
+
 
 .c-img .imagen{
     width: 70%;
     height: 70%;
+    
 }
 
 .c-img .imagen img{
@@ -32,18 +45,31 @@
     object-fit: contain;
 }
 
+.c-img .oferta{
+    width: 40%;
+    height: 100%;
+    background-color: red;
+    
+    
+}
+
 .informacion{
     width: 50%;
     display: flex;
-    text-align: right;
     justify-content: space-around;
+    align-items: center;
     height: 100%;
     flex-direction: column;
-}
+     background-color: #ffffff3a;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position:static;
+  
 
+}
 .informacion h2{
     font-size: 40px;
-    border-bottom: solid 2px green;
+   
 }
 
 
@@ -53,30 +79,51 @@ p{
 }
 
 button{
-    width: 200px;
-    height: 60px;
+    
+    width: 100%;
+    height: 40px;
     border: none;
     background-color: none;
     border: 2px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 span{
-    font-size: 50px;
     color: forestgreen;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-right: 10px;
 }
 
 .precio{
-    text-align: left;
+    
     font-size: 40px;
+    border-bottom:solid #ffffffcb 2px;
 }
 
 .talla, .color, .estado{
-    text-align: left;
-    font-size: 15px;
-    margin-left: 20px;
+    
+    font-size:large;
+    
 }
 
 .botones{
-    width: 100%;
+    height: 10vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.desc{
+    font-size: medium;
+}
+strong{
+
+    color:  green;
     display: flex;
     align-items: center;
     justify-content: center;

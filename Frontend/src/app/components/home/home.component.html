@@ -1,11 +1,11 @@
 <div class="contenido">
 
     <div class="slider"></div>
-
-    <h2>Prendas</h2>
-
+    <!-- <p>{{prenda.precio}}</p> -->
+    <h4>DAMA</h4>
     <div class="prendas" >
-        <div class="prenda" *ngFor="let prenda of prendas">
+        
+        <div class="prenda" *ngFor="let prenda of prendasDama">
             <div ></div>
             <div class="elementos">
                 <div class="t-img">
@@ -28,8 +28,64 @@
             </div>
         </div>
     </div>
-    <!-- <p>{{prenda.precio}}</p> -->
     <button (click)="categoria(dama)">Ver prendas</button>
-    <button (click)="categoria(hombre)">Ver prendas</button>
+
+    <h4>CABALLERO</h4>
+    
+    <div class="prendas" >
+        <div class="prenda" *ngFor="let prenda of prendasCaballero">
+            <div ></div>
+            <div class="elementos">
+                <div class="t-img">
+                    <div class="image">
+                        <img [src]="prenda.imagen">
+                        <h2>{{prenda.nombre}}</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{prenda.descripcion}}</p>
+                    <h3><strong>{{prenda.precio|currency:' COP ' }}</strong></h3>
+                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                </div>
+                
+                <!-- <p>{{prenda.id}}</p> -->
+                
+               
+                <!-- <input type="submit"> -->
+                
+            </div>
+        </div>
+    </div>
+
+
+     <button (click)="categoria(caballero)">Ver prendas</button>
+
+     <h4>NIÑOS</h4>
+
+     <div class="prendas" >
+        <div class="prenda" *ngFor="let prenda of prendasNinos">
+            <div ></div>
+            <div class="elementos">
+                <div class="t-img">
+                    <div class="image">
+                        <img [src]="prenda.imagen">
+                        <h2>{{prenda.nombre}}</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{prenda.descripcion}}</p>
+                    <h3><strong>{{prenda.precio|currency:' COP ' }}</strong></h3>
+                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                </div>
+                
+                <!-- <p>{{prenda.id}}</p> -->
+                
+               
+                <!-- <input type="submit"> -->
+                
+            </div>
+        </div>
+    </div>
+         
     <button (click)="categoria(ninos)">Ver prendas</button>
 </div>

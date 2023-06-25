@@ -11,8 +11,11 @@ export class HomeComponent implements OnInit {
 
   prendas: any;
   dama: string = "dama";
-  hombre: string = "Caballero";
+  caballero: string = "caballero";
   ninos: string = "niños";
+  prendasDama: any;
+  prendasCaballero: any;
+  prendasNinos: any;
 
   constructor(private client: ClientService, private router: Router) {
 
@@ -29,6 +32,43 @@ export class HomeComponent implements OnInit {
 
       })
     );
+
+    this.client.getRequest(`http://localhost:10101/categoria/${this.dama}`).subscribe(
+      ((response: any) => {
+        this.prendasDama = response.prendas;
+        console.log(response);
+
+      }),
+      ((error: any) => {
+        console.log(error.error.Status);
+
+      })
+    );
+
+    this.client.getRequest(`http://localhost:10101/categoria/${this.caballero}`).subscribe(
+      ((response: any) => {
+        this.prendasCaballero = response.prendas;
+        console.log(response);
+
+      }),
+      ((error: any) => {
+        console.log(error.error.Status);
+
+      })
+    );
+
+    this.client.getRequest(`http://localhost:10101/categoria/${this.ninos}`).subscribe(
+      ((response: any) => {
+        this.prendasNinos = response.prendas;
+        console.log(response);
+
+      }),
+      ((error: any) => {
+        console.log(error.error.Status);
+
+      })
+    );
+
   }
 
   verPrenda(id_prenda: number) {

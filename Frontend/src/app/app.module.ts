@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './components/registro/registro.component';
@@ -30,9 +30,12 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule,
+    AppRoutingModule, 
+    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxImageZoomModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
