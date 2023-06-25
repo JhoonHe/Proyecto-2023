@@ -154,7 +154,8 @@ app.get("/productos", (req, res) => {
             id_prenda: atributo.id_prenda,
             nombre: atributo.nombre,
             precio: atributo.precio,
-            imagen: atributo.imagen
+            imagen: atributo.imagen,
+            descripcion:atributo.descripcion
 
         }))
 
@@ -163,9 +164,7 @@ app.get("/productos", (req, res) => {
 })
 
 app.get("/detalle-prenda/:id", (req, res) => {
-
     id = req.params.id;
-
     conexion.query('SELECT * FROM prendas where id_prenda = ?', [id], (error, resultado) => {
         if (error) {
             console.error(error);

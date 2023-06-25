@@ -8,14 +8,23 @@
         <div class="prenda" *ngFor="let prenda of prendas">
             <div ></div>
             <div class="elementos">
-                <h3>{{prenda.nombre}}</h3>
-                <!-- <p>{{prenda.id}}</p> -->
-                <div class="image">
-                    <img [src]="prenda.imagen">
+                <div class="t-img">
+                    <div class="image">
+                        <img [src]="prenda.imagen">
+                        <h2>{{prenda.nombre}}</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{prenda.descripcion}}</p>
+                    <h3><strong>{{prenda.precio|currency:' COP ' }}</strong></h3>
+                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
                 </div>
                 
+                <!-- <p>{{prenda.id}}</p> -->
+                
+               
                 <!-- <input type="submit"> -->
-                <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                
             </div>
         </div>
     </div>
