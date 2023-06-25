@@ -6,8 +6,11 @@
             <input type="search" id="buscar" placeholder="Buscar">
         </div>
         <div class="botones">
-            <a routerLink="/register">Registrarse</a>
-            <a routerLink="/login">Iniciar sesión</a>
+            <a routerLink="/register" *ngIf="!nombre">Registrarse</a>
+            <a routerLink="/login" *ngIf="!nombre">Iniciar sesión</a>
+            <!-- <a routerLink="/login" *ngIf="nombre">{{nombre}}</a> -->
+            <h4>{{nombre}}</h4>
+            <button (click)="cerrarSesion()" *ngIf="nombre">Cerrar sesión</button>
         </div>
     </div>
     <div class="elementos">
