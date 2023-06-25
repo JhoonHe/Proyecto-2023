@@ -175,7 +175,10 @@ app.get("/detalle-prenda/:id", (req, res) => {
             id_prenda: atributo.id_prenda,
             nombre: atributo.nombre,
             precio: atributo.precio,
-            imagen: atributo.imagen
+            imagen: atributo.imagen,
+            talla:atributo.talla,
+            color:atributo.color, 
+            estado:atributo.estado
 
         }))
 

@@ -1,62 +1,83 @@
-.contenido {
-    /* border: 2px black solid; */
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0px;
-}
-
-.prenda {
-    /* border: 2px green solid; */
-    display: flex;
+.contenido{
+    margin: 50px 50px;
     width: 100%;
-    justify-content: space-evenly;
-    /* border-bottom: 2px gray solid; */
-    /* border-top: 2px gray solid; */
-}
-
-.imagen {
-    /* border: 2px red solid; */
-    width: 450px;
-    height: 450px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    /* width: 40%; */
-    /* background-color: rgb(231, 231, 231); */
-    /* background-image: url("https://www.transparenttextures.com/patterns/black-linen.png"); */
+    justify-content: center;
+     height: 60vh;
+     gap: 20px;
 }
 
-img {
-    /* width: 400px;
-    height: 400px; */
+.c-img{
+    width: 40%;
+    height: 100%;
+    background-color:rgb(230, 230, 230);
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px green;
+   
+}
+
+.c-img .imagen{
+    width: 70%;
+    height: 70%;
+}
+
+.c-img .imagen img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.informacion {
-    /* border: 2px blue solid; */
-    /* width: 400px; */
+.informacion{
+    width: 50%;
     display: flex;
-    width: 40%;
-    flex-direction: column;
+    text-align: right;
     justify-content: space-around;
-    /* align-items: center; */
+    height: 100%;
+    flex-direction: column;
 }
 
-.botones {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.informacion h2{
+    font-size: 40px;
+    border-bottom: solid 2px green;
 }
 
-.botones button {
-    width: 100%;
-    height: 50px;
-    cursor: pointer;
-    background-color: rgb(23, 46, 65);
+
+p{
+    font-size: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+    width: 200px;
+    height: 60px;
     border: none;
-    color: white;
+    background-color: none;
+    border: 2px solid green;
+}
+span{
+    font-size: 50px;
+    color: forestgreen;
+}
+
+.precio{
+    text-align: left;
+    font-size: 40px;
+}
+
+.talla, .color, .estado{
+    text-align: left;
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.botones{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -67,7 +67,7 @@
 }
 
 button {
-    /*padding: 15px 50px;*/
+
     width: 60%;
     height: 40px;
     display:flex;
@@ -78,8 +78,6 @@ button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     border: none;
-    
-    
 
 }
 
