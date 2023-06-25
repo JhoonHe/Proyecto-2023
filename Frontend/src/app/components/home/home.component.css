@@ -81,3 +81,8 @@ h2 {
     background: url(../../../assets/img/slider.jpg) no-repeat;
     background-size: cover;
 }
+
+.prendasCategoria {
+    width: 80%;
+    border: 2px black solid;
+}
