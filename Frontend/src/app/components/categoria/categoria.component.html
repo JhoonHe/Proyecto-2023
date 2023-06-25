@@ -1,13 +1,68 @@
-<div class="contenido">
-    <div class="prendas">
-        <div class="prenda" *ngFor="let prenda of prendas">
-            <div class="elementos">
-                <h3>{{prenda.nombre}}</h3>
-                <!-- <p>{{prenda.id}}</p> -->
-                <img [src]="prenda.imagen">
-                <!-- <input type="submit"> -->
-                <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+
+<div class="todo">
+
+    <div class="filtro">
+
+        <div class="menu">
+    
+            <h1>Categorias</h1>
+            <div class="nav">
+                <ul class="list">
+    
+                    <li class="list_item">
+                        <div class="list_button">
+                            <a href="" class="nav_link">Camisetas</a>
+                        </div>
+                    </li>
+    
+                    <li class="list_item">
+                        <div class="list_button">
+                            <a href="" class="nav_link">Jeans</a>
+                        </div>
+                    </li>
+    
+                    <li class="list_item">
+                        <div class="list_button">
+                            <a href="" class="nav_link">Polos</a>
+                        </div>
+                    </li>
+    
+                    <li class="list_item">
+                        <div class="list_button">
+                            <a href="" class="nav_link">Chaquetas</a>
+                        </div>
+                    </li>
+    
+                    <li class="list_item">
+                        <div class="list_button">
+                            <a href="" class="nav_link">Camisas</a>
+                        </div>
+                    </li>
+    
+                </ul>
             </div>
         </div>
+    
+    </div>
+    <div class="contenido">
+    
+       
+        
+    <div class="prenda" *ngFor="let prenda of prendas">
+        <div ></div>
+        <div class="elementos">
+            <div class="t-img">
+                <div class="image">
+                    <img [src]="prenda.imagen">
+                    <h2>{{prenda.nombre}}</h2>
+                </div>
+            </div>
+            <div class="content">
+                <p>{{prenda.descripcion}}</p>
+                <h3><strong>{{prenda.precio|currency:' COP ' }}</strong></h3>
+                <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+            </div>
+    
     </div>
 </div>
+

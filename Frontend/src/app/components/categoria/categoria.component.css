@@ -1,0 +1,200 @@
+.todo{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 0 100px 0;
+    gap: 50px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    flex-wrap: wrap;
+    width: 70%;    
+}
+
+.prendas {
+    /* border: 2px green solid; */
+    width: 50%;
+   
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.prenda {
+
+    border: 2px rgb(226, 224, 224) solid;
+    width: 20%;
+    border-radius: 10px;
+    width: 400px;
+    height: 100%;
+    border-radius: 40px;
+     
+}
+
+.prenda:hover {
+    opacity: 0.8;
+}
+
+.prenda:hover input {
+    background-color: rgb(23, 65, 44);
+}
+
+.prenda img {
+    /* width: 400px;
+        height: 400px; */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+}
+
+.elementos {
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 700px;
+    border-radius: 40px;
+    
+   
+}
+
+button {
+
+    width: 60%;
+    height: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border: none;
+
+}
+
+button:hover{
+    background-color: #4CAF50; /* Green */
+    color: white;
+} 
+
+.elementos h3 {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.elementos h3 strong{
+    font-size: 40px;
+    padding-left: 10px;
+}
+
+h2 {
+    font-size: 50px;
+    color: rgb(5, 29, 16);
+}
+
+.slider {
+    width: 95%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(219, 218, 218);
+    color: rgb(238, 238, 238);
+    font-size: 100px;
+    background: url(../../../assets/img/slider.jpg) no-repeat;
+    background-size: cover;
+}
+
+.image{ 
+   
+    width: 100%;
+    height: 200px;
+}
+.t-img{
+    width: 100%;
+    height: 450px;
+    background-color:rgb(230, 230, 230);
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+.t-img h2{
+    text-align: center;
+    font-size: 25px;
+}
+.content{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.content p{
+    padding: 13px;
+    text-align: center;
+}
+h4{
+
+    font-size: 50px;
+    text-align: left;
+    color: aliceblue;
+    border-bottom: solid green 2px;
+}
+
+
+/*Filtro*/
+
+
+.filtro{
+    border: 2px black solid;
+    width: 18%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    height: 450px;
+
+}
+
+.filtro ul li a{
+    color: black;
+}
+
+.filtro ul{
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav{
+    /* border: 2px purple solid; */
+    margin-top: 30px;
+}
+
+.menu{
+    /* border: 2px rgb(158, 0, 5) solid; */
+    width: 80%;
+}
