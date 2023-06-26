@@ -1,68 +1,59 @@
-
 <div class="todo">
-
-    <div class="filtro">
-
-        <div class="menu">
-    
+    <div class="ft">
+        <div class="filtro">
             <h1>Categorias</h1>
-            <div class="nav">
-                <ul class="list">
-    
-                    <li class="list_item">
-                        <div class="list_button">
-                            <a href="" class="nav_link">Camisetas</a>
-                        </div>
-                    </li>
-    
-                    <li class="list_item">
-                        <div class="list_button">
-                            <a href="" class="nav_link">Jeans</a>
-                        </div>
-                    </li>
-    
-                    <li class="list_item">
-                        <div class="list_button">
-                            <a href="" class="nav_link">Polos</a>
-                        </div>
-                    </li>
-    
-                    <li class="list_item">
-                        <div class="list_button">
-                            <a href="" class="nav_link">Chaquetas</a>
-                        </div>
-                    </li>
-    
-                    <li class="list_item">
-                        <div class="list_button">
-                            <a href="" class="nav_link">Camisas</a>
-                        </div>
-                    </li>
-    
-                </ul>
-            </div>
-        </div>
-    
-    </div>
-    <div class="contenido">
-    
-       
-        
-    <div class="prenda" *ngFor="let prenda of prendas">
-        <div ></div>
-        <div class="elementos">
-            <div class="t-img">
-                <div class="image">
-                    <img [src]="prenda.imagen">
-                    <h2>{{prenda.nombre}}</h2>
+            <div class="menu">
+                <div class="nav">
+                    <ul class="list">
+                        <li class="list_item">
+                            <div class="list_button">
+                                <a href="" class="nav_link">Camisetas</a>
+                            </div>
+                        </li>
+
+                        <li class="list_item">
+                            <div class="list_button">
+                                <a href="" class="nav_link">Jeans</a>
+                            </div>
+                        </li>
+
+                        <li class="list_item">
+                            <div class="list_button">
+                                <a href="" class="nav_link">Polos</a>
+                            </div>
+                        </li>
+
+                        <li class="list_item">
+                            <div class="list_button">
+                                <a href="" class="nav_link">Chaquetas</a>
+                            </div>
+                        </li>
+
+                        <li class="list_item">
+                            <div class="list_button">
+                                <a href="" class="nav_link">Camisas</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="content">
-                <p>{{prenda.descripcion}}</p>
-                <h3><strong>{{prenda.precio|currency:' COP ' }}</strong></h3>
-                <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+        </div>
+    </div>
+    <div class="contenido">
+        <div class="prenda" *ngFor="let prenda of prendas">
+            <div class="elementos">
+                <div class="t-img">
+                    <div class="image">
+                        <img [src]="prenda.imagen" />
+                        <h2>{{ prenda.nombre }}</h2>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ prenda.descripcion }}</p>
+                    <h3 class="precio">{{ prenda.precio | currency : " COP " }}</h3>
+                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                </div>
             </div>
-    
+        </div>
     </div>
 </div>
-
