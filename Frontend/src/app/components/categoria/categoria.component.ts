@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CategoriaComponent {
 
   nombreCategoria: string;
-  prendas: any;
+  ropa: any;
 
   constructor(private client: ClientService, private router: Router, private routeActivate: ActivatedRoute) {
 
@@ -21,10 +21,11 @@ export class CategoriaComponent {
     this.nombreCategoria = this.routeActivate.snapshot.params["categoria"];
     console.log(this.nombreCategoria);
 
-    this.client.getRequest(`http://localhost:10101/categoria/${this.nombreCategoria}`).subscribe(
+    this.client.getRequest(`http://localhost:10101/categorias/${this.nombreCategoria}`).subscribe(
       ((response: any) => {
-        this.prendas = response.prendas;
-
+        this.ropa = response.prendas;  
+        console.log(response);
+        
       }),
       ((error: any) => {
         console.log(error.error.Status);

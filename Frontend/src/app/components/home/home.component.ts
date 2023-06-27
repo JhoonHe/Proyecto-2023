@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       })
     );
 
+
     this.client.getRequest(`http://localhost:10101/categoria/${this.dama}`).subscribe(
       ((response: any) => {
         this.prendasDama = response.prendas;
@@ -79,6 +80,6 @@ export class HomeComponent implements OnInit {
   categoria(categoria: string) {
     console.log(categoria);
 
-    this.router.navigate(['/categoria', categoria]);
+    this.router.navigate(['/categorias', categoria]);
   }
 }

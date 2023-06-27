@@ -232,7 +232,7 @@ app.get("/prendas/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    conexion.query('SELECT * FROM prendas where nombre_Categoria = ? ORDER BY RAND() LIMIT 10 ', [categoria], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas where nombre_Categoria = ? ', [categoria], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
@@ -303,7 +303,33 @@ app.get("/categoria/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    conexion.query('SELECT * FROM prendas where nombre_Categoria = ?', [categoria], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 3', [categoria], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let prendas = resultado.map((atributo) => ({
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen,
+            descripcion:atributo.descripcion
+
+        }));
+
+        return res.status(200).json({ prendas: prendas });
+    })
+})
+
+
+app.get("/categorias/:categoria", (req, res) => {
+
+    categoria = req.params.categoria;
+
+    console.log(categoria);
+
+    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ?', [categoria], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });

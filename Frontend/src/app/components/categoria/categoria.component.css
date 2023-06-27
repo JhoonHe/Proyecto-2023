@@ -181,7 +181,7 @@ h4{
 .filtro{
     position: sticky;   
     top: 0;
-    margin-top: 20px;
+    margin-top: 300px;
     border: 2px green solid;
     border-radius: 5px;
     display: flex;
