@@ -41,5 +41,21 @@ export class DetallePrendaComponent implements OnInit {
       })
     );
   }
+  
+  comprar() {
+    this.idPrenda = this.routeActivate.snapshot.params["id"];
+    this.client.postRequest(`http://localhost:10101/detalle-prenda/${this.idPrenda}`).subscribe(
+      ((response: any) => {
+        console.log(response);
+
+      }),
+      ((error: any) => {
+        console.log(error.error.Status);
+        console.log(error);
+
+      })
+    );
+  }
 
 }
+

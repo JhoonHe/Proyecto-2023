@@ -348,4 +348,21 @@ app.get("/categorias/:categoria", (req, res) => {
 
         return res.status(200).json({ prendas: prendas });
     })
+});
+
+app.post("/detalle-prenda/:id", (req, res) => {
+    let session = req.session;
+    let id = req.params.id;
+    console.log(session.correo);
+    console.log(id);
+
+    conexion.query('INSERT INTO compras (correo_usuario, id_prenda) VALUES (?,?)',[session.correo,id], (error) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ "Status": "Error en la compra" });
+        }
+
+        return res.status(200).json({ "Status": "¡Compra Exitosa!" });
+    })
+
 })
