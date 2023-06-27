@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/client.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio',
@@ -47,6 +48,13 @@ export class InicioComponent implements OnInit {
             id = response.id;
 
             setTimeout(() => {
+              Swal.fire({
+                icon: 'success',
+                title: '¡Inicio de sección exitoso!',
+                width:'300px',
+                showConfirmButton: false,
+                timer: 1500
+              })
               this.router.navigate(['/detalle-usuario', id]);
             }, 3000)
 
@@ -60,12 +68,24 @@ export class InicioComponent implements OnInit {
               this.spinner = false;
               this.mensaje = error.error.Status;
               console.log(this.mensaje);
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '¡Credenciales incorrectas!',
+                width:'300px',
+              })
             }, 5000)
           }
         );
     } else {
       // console.log('Verifique sus datos');
       this.mensaje = "Verifique sus datos";
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Verifique sus datos!',
+        width:'300px',
+      })
     }
   }
 

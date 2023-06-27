@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
+import { HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,11 +8,16 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  scrolled: boolean = false;
   nombre: string;
 
   constructor(private client: ClientService) {
 
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.scrolled = (window.pageYOffset  || document.documentElement.scrollTop || document.body.scrollTop) > 0;
   }
 
   ngOnInit(): void {

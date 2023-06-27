@@ -30,7 +30,7 @@ app.listen(10101, () => {
 let conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '1234',
+    password: 'Sena1234',
     database: 'db_proyecto'
 });
 
@@ -219,31 +219,6 @@ app.get("/productos", (req, res) => {
             imagen: atributo.imagen
 
         }))
-
-        return res.status(200).json({ prendas: prendas });
-    })
-})
-
-
-app.get("/prendas/:categoria", (req, res) => {
-
-    categoria = req.params.categoria;
-
-    console.log(categoria);
-
-    conexion.query('SELECT * FROM prendas where nombre_Categoria = ? ORDER BY RAND() LIMIT 10', [categoria], (error, resultado) => {
-        if (error) {
-            console.error(error);
-            return res.status(500).json({ error: 'Error en el servidor' });
-        }
-
-        let prendas = resultado.map((atributo) => ({
-            id_prenda: atributo.id_prenda,
-            nombre: atributo.nombre,
-            precio: atributo.precio,
-            imagen: atributo.imagen
-
-        }));
 
         return res.status(200).json({ prendas: prendas });
     })

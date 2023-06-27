@@ -1,5 +1,4 @@
 <div class="contenido">
-
     <div class="slider"></div>
 
     <h2>Prendas</h2>
@@ -16,49 +15,7 @@
         </div>
     </div>
     <!-- <p>{{prenda.precio}}</p> -->
-
-    <div class="prendasCategoria">
-        <div class="prendas">
-            <div class="prenda" *ngFor="let prenda of prendasDama">
-                <div class="elementos">
-                    <h3>{{prenda.nombre}}</h3>
-                    <!-- <p>{{prenda.id}}</p> -->
-                    <img [src]="prenda.imagen">
-                    <!-- <input type="submit"> -->
-                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
-                </div>
-            </div>
-        </div>
-        <button (click)="categoria(dama)">Ver prendas</button>
-    </div>
-
-    <div class="prendasCategoria">
-        <div class="prendas">
-            <div class="prenda" *ngFor="let prenda of prendasCaballero">
-                <div class="elementos">
-                    <h3>{{prenda.nombre}}</h3>
-                    <!-- <p>{{prenda.id}}</p> -->
-                    <img [src]="prenda.imagen">
-                    <!-- <input type="submit"> -->
-                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
-                </div>
-            </div>
-        </div>
-        <button (click)="categoria(caballero)">Ver prendas</button>
-    </div>
-
-    <div class="prendasCategoria">
-        <div class="prendas">
-            <div class="prenda" *ngFor="let prenda of prendasNinos">
-                <div class="elementos">
-                    <h3>{{prenda.nombre}}</h3>
-                    <!-- <p>{{prenda.id}}</p> -->
-                    <img [src]="prenda.imagen">
-                    <!-- <input type="submit"> -->
-                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
-                </div>
-            </div>
-        </div>
-        <button (click)="categoria(ninos)">Ver prendas</button>
-    </div>
+    <button (click)="categoria(dama)">Ver prendas</button>
+    <button (click)="categoria(hombre)">Ver prendas</button>
+    <button (click)="categoria(ninos)">Ver prendas</button>
 </div>

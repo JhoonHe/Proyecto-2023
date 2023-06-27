@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
     <div class="nav">
         <div class="logo"><a href="#">DEFAULTH || MEMBERS</a></div>
         <div class="busqueda">
@@ -8,7 +8,7 @@
         <div class="botones">
             <a routerLink="/register" *ngIf="!nombre">Registrarse</a>
             <a routerLink="/login" *ngIf="!nombre">Iniciar sesión</a>
-            <!-- <a routerLink="/login" *ngIf="nombre">{{nombre}}</a> -->
+             <a routerLink="/login" *ngIf="nombre">{{nombre}}</a> 
             <h4>{{nombre}}</h4>
             <button (click)="cerrarSesion()" *ngIf="nombre">Cerrar sesión</button>
         </div>
@@ -23,3 +23,42 @@
         </ul>
     </div>
 </nav>
+<div class="capa"></div> 
+-->
+<nav [ngClass]="{'navbar': true, 'transparent': scrolled}">
+    <div class="elementos">
+        <div class="logo"><a href="#">DEFAULTH  -  MEMBERS</a></div>
+        <a class="vender" href="#">Vende tu ropa</a>
+        <ul>
+            <li><a href="#">Hombre</a></li>
+            <li><a href="#">Mujer</a></li>
+            <li><a href="#">Niños</a></li>
+        </ul>
+    </div>
+    <div class="nav">
+        <a class="vender" href="#"><span class="material-symbols-outlined">
+            home
+            </span>Inicio</a>
+        <div class="busqueda">
+            <span class="material-symbols-outlined">search</span>
+            <label for="buscar"></label>
+            <input type="search" id="buscar" placeholder="Buscar">
+        </div>
+        <div class="botones">
+            <a><span class="material-symbols-outlined">
+                how_to_reg
+                </span>Registrarse</a>
+            <a><span class="material-symbols-outlined">
+                background_replace
+                </span>Iniciar sesión</a>
+        </div>
+    </div>
+    
+  </nav>
+
+
+<nav>
+    
+</nav>
+
+
