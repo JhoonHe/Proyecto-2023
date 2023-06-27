@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/client.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-registro',
@@ -21,7 +24,7 @@ export class RegistroComponent implements OnInit {
     localStorage.setItem("token", "ahsdgjfdagjsdfasgdjsadgsa");
     this.form = this.fb.group({
       nombre: ['', Validators.required],
-      correo: ['', Validators.required],
+      correo: ['', Validators.email],
       clave: ['', Validators.required]
     });
   }
@@ -39,22 +42,39 @@ export class RegistroComponent implements OnInit {
           ((response: any) => {
             // console.log(response);
             // this.mensaje = response.Status;
-            // console.log(this.mensaje);
-
+            // console.log(this.mensaje)
             setTimeout(() => {
+              Swal.fire({
+                icon: 'success',
+                title: 'Registro Exitoso',
+                width:'300px',
+                showConfirmButton: false,
+                timer: 1500
+
+              })
               this.router.navigate(['login']);
-            }, 3000)
+            }, 2000)
+
+           
 
           }),
           ((error: any) => {
             // console.log("error");
             this.mensaje = error.error.Status;
 
+
             setTimeout(() => {
               this.formulario = true;
               this.spinner = false;
               console.log(this.mensaje);
-            }, 5000)
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error, correo ya existente.',
+                width:'300px',
+              })
+              
+            }, 3000)
 
           })
         )
@@ -62,6 +82,12 @@ export class RegistroComponent implements OnInit {
     } else {
       // console.log("Verifique sus datos");
       this.mensaje = "Verifique sus datos";
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Verifique sus datos',
+        width:'300px',
+      })
     }
   }
 

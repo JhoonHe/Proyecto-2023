@@ -1,19 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    font-family: 'Agdasima', sans-serif;
+}
+
 nav {
-    /* border: 2px black solid; */
+    /* display: contents; */
+    width: 100%;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    height: 140px;
+    gap: 25px;
     justify-content: center;
-    padding: 40px 0 10px 0;
-    gap: 40px;
-    border-bottom: 2px rgb(23, 65, 25) solid;
+    
 }
 
 nav ul {
-    /* border: 2px red solid; */
     display: flex;
-    gap: 40px;
     list-style: none;
-    /* justify-content: space-between; */
 }
 
 li {
@@ -23,7 +34,6 @@ li {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    /* border: 2px black solid; */
 }
 
 li a:hover {
@@ -47,9 +57,9 @@ li a:hover {
 
 .elementos {
     display: flex;
-    /* border: 2px black solid; */
     justify-content: space-evenly;
     padding: 0 20px;
+    align-items: center;
 }
 
 .elementos .vender {
@@ -63,6 +73,7 @@ li a:hover {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    
 }
 
 .botones {
@@ -81,6 +92,7 @@ li a:hover {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
 }
 
 button {
@@ -88,27 +100,53 @@ button {
 }
 
 .busqueda {
-    /* border: 2px black solid; */
     display: flex;
-    gap: 20px;
     align-items: center;
+    padding-left: 136px;
 }
 
 .busqueda input {
     border: none;
     border-bottom: 1px black solid;
-    height: 20px;
-    width: 300px;
+    height: 27px;
+    width: 270px;
+    border-radius: 7px;
 }
 
 .logo {
     font-size: 30px;
 }
 
-a {
+nav a {
     text-decoration: none;
     color: black;
+    display: flex;
+    align-items: center;
 }
-img{
-    width: 350px;
+
+nav.navbar a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+nav.navbar.transparent a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.navbar {
+    display: fixed;
+    transition: background-color 0.3s ease; 
+}
+  
+.navbar.transparent {
+background: #043d1270;
+position: fixed; 
 }

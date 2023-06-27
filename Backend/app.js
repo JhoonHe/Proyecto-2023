@@ -1,8 +1,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let cors = require('cors');
-// let cookieParser = require("cookie-parser");
-// const session = require('express-session');
 
 let mysql = require('mysql2');
 
@@ -11,15 +9,7 @@ const timeEXp = 1000 * 60 * 60 * 24;
 let app = express()
     .use(cors({ credentials: true, origin: 'http://localhost:4200' }))
     .use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }))
-    // .use(cookieParser())
-    // .use(session({
-    //     secret: "jk32gkjn322m23jfwefmknwjkskl",
-    //     saveUninitialized: true,
-    //     cookie: { maxAge: timeEXp },
-    //     resave: false
-    // }))
-
+    .use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(10101, () => {
     console.log("Conexión establecida en el puerto 10101");
