@@ -45,10 +45,12 @@
             <input type="search" id="buscar" placeholder="Buscar">
         </div>
         <div class="botones">
-            <a><span class="material-symbols-outlined">
+            <a *ngIf="!nombre" routerLink="register"><span class="material-symbols-outlined">
                 how_to_reg
                 </span>Registrarse</a>
-            <a><span class="material-symbols-outlined">
+                <a *ngIf="nombre">{{nombre}}</a>
+                <a *ngIf="nombre" (click)="cerrarSesion()">Cerrar Sesion</a>
+            <a *ngIf="!nombre"  routerLink="login"><span class="material-symbols-outlined">
                 background_replace
                 </span>Iniciar sesión</a>
         </div>

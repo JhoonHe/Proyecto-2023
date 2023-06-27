@@ -10,6 +10,7 @@ import { HostListener} from '@angular/core';
 export class NavComponent implements OnInit {
   scrolled: boolean = false;
   nombre: string;
+  correo:string;
 
   constructor(private client: ClientService) {
 
@@ -21,6 +22,8 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.nombre);
+    
     this.client.getRequest(`http://localhost:10101/nav`).subscribe(
       ((response: any) => {
 
@@ -30,7 +33,7 @@ export class NavComponent implements OnInit {
 
       }),
       ((error: any) => {
-        console.log(error.error.Status);
+        // console.log(error.error.Status);
         console.log(error);
 
       })

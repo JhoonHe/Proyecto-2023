@@ -1,6 +1,8 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let cors = require('cors');
+let cookieParser = require("cookie-parser");
+const session = require('express-session');
 
 let mysql = require('mysql2');
 
@@ -9,7 +11,14 @@ const timeEXp = 1000 * 60 * 60 * 24;
 let app = express()
     .use(cors({ credentials: true, origin: 'http://localhost:4200' }))
     .use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: true }));
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(cookieParser())
+    .use(session({
+        secret: "jk32gkjn322m23jfwefmknwjkskl",
+        saveUninitialized: true,
+        cookie: { maxAge: timeEXp },
+        resave: false
+    }))
 
 app.listen(10101, () => {
     console.log("Conexión establecida en el puerto 10101");
@@ -49,7 +58,7 @@ app.post('/register', function (req, res) {
 
     // console.log(name, password, email, req.header("Authorization"));
 
-    conexion.query("INSERT INTO usuario (nombre, clave, correo) VALUES (?,?,?)", [nombre, clave, correo], (error) => {
+    conexion.query("INSERT INTO usuario (correo, nombre, clave) VALUES (?,?,?)", [correo, nombre, clave], (error) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al registrar" });
@@ -99,17 +108,20 @@ app.post('/login', function (req, res) {
     let correo = req.body.correo;
     let clave = req.body.clave;
 
-    // console.log(email, password);
+    console.log(correo);
+    console.log(clave);
 
     conexion.query("SELECT * FROM usuario WHERE correo = ?", [correo], (error, results) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al iniciar sesión" });
+            
         }
 
         console.log("longitud" + results.length);
 
         if (results.length === 0) {
+            console.log("MALA");
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
 
@@ -130,8 +142,8 @@ app.post('/login', function (req, res) {
 app.get('/test-cookies', (req, res) => {
 
     let correo = req.session.correo;
+    console.log(correo);
 
-    // console.log(session);
 
     if (correo) {
         res.send(`Usted tiene una sesión en nuestro sistema con correo:
@@ -143,10 +155,10 @@ app.get('/test-cookies', (req, res) => {
 app.get('/nav', (req, res) => {
 
     let correo = req.session.correo;
-
+    console.log(correo);
     if (correo) {
 
-        console.log(correo);
+        
 
         conexion.query('SELECT nombre FROM usuario WHERE correo = ?', [correo], (error, resultado) => {
             if (error) {
