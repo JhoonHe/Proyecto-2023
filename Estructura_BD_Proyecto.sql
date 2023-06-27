@@ -16,6 +16,7 @@ CREATE TABLE usuario (
   create table categoria (
     nombre_Categoria varchar (20) primary key
 	);
+  
 create table categoria_Prenda (
 	id_categoria_Prenda int  auto_increment primary key,
 	nombre varchar (30));

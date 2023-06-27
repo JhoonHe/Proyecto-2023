@@ -180,17 +180,18 @@ h4{
 
 .filtro{
     position: sticky;   
-    top: 0;
-    margin-top: 300px;
+    top: 160px;
+    margin-top: 100px;
     border: 2px green solid;
     border-radius: 5px;
     display: flex;
     justify-content: space-around;
-    height: 450px;
+    height: 300px;
     align-items: center;
     background-color:rgb(230, 230, 230);
     flex-direction: column;
     width: 100%;
+    margin-left: 20px;
     
 }
 .ft{

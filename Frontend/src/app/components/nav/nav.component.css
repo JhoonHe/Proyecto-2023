@@ -9,6 +9,7 @@ a {
     font-family: 'Agdasima', sans-serif;
 }
 
+
 nav {
     /* display: contents; */
     width: 100%;
@@ -119,14 +120,14 @@ button {
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: green;
     display: flex;
     align-items: center;
 }
 
 nav.navbar a{
     text-decoration: none;
-    color: black;
+    color: green;
     display: flex;
     align-items: center;
 }
@@ -147,6 +148,11 @@ nav.navbar.transparent a {
 }
   
 .navbar.transparent {
-background: #043d1270;
+background: #043d126b;
 position: fixed; 
+z-index: 200;
+}
+
+material-symbols-outlined{
+    color: white;
 }

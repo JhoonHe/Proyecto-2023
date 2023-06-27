@@ -293,7 +293,7 @@ app.get("/categoria/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 3', [categoria], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 4', [categoria], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
