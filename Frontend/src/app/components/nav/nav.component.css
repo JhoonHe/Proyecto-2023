@@ -9,7 +9,6 @@ a {
     font-family: 'Agdasima', sans-serif;
 }
 
-
 nav {
     /* display: contents; */
     width: 100%;
@@ -20,7 +19,7 @@ nav {
     height: 140px;
     gap: 25px;
     justify-content: center;
-    
+
 }
 
 nav ul {
@@ -74,7 +73,7 @@ li a:hover {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    
+
 }
 
 .botones {
@@ -86,7 +85,7 @@ li a:hover {
     background-color: rgb(23, 46, 65);
     border: none;
     height: 30px;
-    width: 100px;
+    width: 130px;
     border-radius: 5px;
     color: white;
     display: flex;
@@ -104,6 +103,17 @@ button {
     display: flex;
     align-items: center;
     padding-left: 136px;
+    gap: 10px;
+}
+
+::placeholder {
+    color: black;
+    /* Cambia el color a tu preferencia */
+}
+
+.material-symbols-outlined {
+    /* border: 2px black solid; */
+    display: flex;
 }
 
 .busqueda input {
@@ -111,7 +121,9 @@ button {
     border-bottom: 1px black solid;
     height: 27px;
     width: 270px;
-    border-radius: 7px;
+    /* color: black; */
+    background-color: transparent;
+    /* border-radius: 7px; */
 }
 
 .logo {
@@ -120,14 +132,14 @@ button {
 
 nav a {
     text-decoration: none;
-    color: green;
     display: flex;
     align-items: center;
+    color: black;
 }
 
-nav.navbar a{
+nav.navbar a {
     text-decoration: none;
-    color: green;
+    /* color: green; */
     display: flex;
     align-items: center;
 }
@@ -139,20 +151,18 @@ nav.navbar.transparent a {
     align-items: center;
 }
 
-
-
-
 .navbar {
     display: fixed;
-    transition: background-color 0.3s ease; 
-}
-  
-.navbar.transparent {
-background: #043d126b;
-position: fixed; 
-z-index: 200;
+    transition: background-color 0.3s ease;
 }
 
-material-symbols-outlined{
+.navbar.transparent {
+    background: #043d126b;
+    position: fixed;
+    z-index: 200;
+    width: 1900px;
+}
+
+material-symbols-outlined {
     color: white;
 }

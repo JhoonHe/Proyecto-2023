@@ -115,13 +115,13 @@ app.post('/login', function (req, res) {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al iniciar sesión" });
-            
+
         }
 
         console.log("longitud" + results.length);
 
         if (results.length === 0) {
-            console.log("MALA");
+            // console.log("MALA");
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
 
@@ -142,7 +142,7 @@ app.post('/login', function (req, res) {
 app.get('/test-cookies', (req, res) => {
 
     let correo = req.session.correo;
-    console.log(correo);
+    // console.log(correo);
 
 
     if (correo) {
@@ -155,10 +155,10 @@ app.get('/test-cookies', (req, res) => {
 app.get('/nav', (req, res) => {
 
     let correo = req.session.correo;
-    console.log(correo);
+    // console.log(correo);
     if (correo) {
 
-        
+
 
         conexion.query('SELECT nombre FROM usuario WHERE correo = ?', [correo], (error, resultado) => {
             if (error) {
@@ -219,7 +219,7 @@ app.get("/productos", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }))
 
@@ -232,7 +232,7 @@ app.get("/prendas/:categoria", (req, res) => {
 
     categoria = req.params.categoria;
 
-    console.log(categoria);
+    // console.log(categoria);
 
     conexion.query('SELECT * FROM prendas where nombre_Categoria = ? ', [categoria], (error, resultado) => {
         if (error) {
@@ -245,7 +245,7 @@ app.get("/prendas/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -268,14 +268,48 @@ app.get("/detalle-prenda/:id", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            talla:atributo.talla,
-            color:atributo.color,
-            descripcion:atributo.descripcion,
-            estado:atributo.estado
+            talla: atributo.talla,
+            color: atributo.color,
+            descripcion: atributo.descripcion,
+            estado: atributo.estado,
+            nombreCategoria: atributo.nombre_Categoria,
+            idCategoria: atributo.id_categoria_Prenda
 
         }))
 
+        // console.log(prendas);
+
         return res.status(200).json({ prendas: prendas });
+    })
+})
+
+app.post('/pendas-recomendadas', (req, res) => {
+    let idCategoria = req.body.idCategoria;
+    let nombreCategoria = req.body.nombreCategoria;
+    let idPrenda = req.body.idPrenda;
+
+    conexion.query('SELECT * FROM prendas where id_categoria_Prenda = ? AND nombre_Categoria = ? AND id_prenda != ?', [idCategoria, nombreCategoria, idPrenda], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let recomendadas = resultado.map((atributo) => ({
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen,
+            talla: atributo.talla,
+            color: atributo.color,
+            descripcion: atributo.descripcion,
+            estado: atributo.estado,
+            nombreCategoria: atributo.nombre_Categoria,
+            idCategoria: atributo.id_categoria_Prenda
+        }))
+
+        // console.log(prendas);
+
+        return res.status(200).json({ recomendadas: recomendadas });
     })
 })
 
@@ -305,7 +339,7 @@ app.get("/categoria/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 4', [categoria], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 5', [categoria], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
@@ -316,7 +350,7 @@ app.get("/categoria/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -342,7 +376,7 @@ app.get("/categorias/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -356,7 +390,7 @@ app.post("/detalle-prenda/:id", (req, res) => {
     console.log(session.correo);
     console.log(id);
 
-    conexion.query('INSERT INTO compras (correo_usuario, id_prenda) VALUES (?,?)',[session.correo,id], (error) => {
+    conexion.query('INSERT INTO compras (correo_usuario, id_prenda) VALUES (?,?)', [session.correo, id], (error) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error en la compra" });
@@ -365,4 +399,35 @@ app.post("/detalle-prenda/:id", (req, res) => {
         return res.status(200).json({ "Status": "¡Compra Exitosa!" });
     })
 
+})
+
+
+app.post('/pendas-recomendadas', (req, res) => {
+    let idCategoria = req.body.idCategoria;
+    let nombreCategoria = req.body.nombreCategoria;
+    let idPrenda = req.body.idPrenda;
+
+    conexion.query('SELECT * FROM prendas where id_categoria_Prenda = ? AND nombre_Categoria = ? AND id_prenda != ?', [idCategoria, nombreCategoria, idPrenda], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let recomendadas = resultado.map((atributo) => ({
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen,
+            talla: atributo.talla,
+            color: atributo.color,
+            descripcion: atributo.descripcion,
+            estado: atributo.estado,
+            nombreCategoria: atributo.nombre_Categoria,
+            idCategoria: atributo.id_categoria_Prenda
+        }))
+
+        // console.log(prendas);
+
+        return res.status(200).json({ recomendadas: recomendadas });
+    })
 })
