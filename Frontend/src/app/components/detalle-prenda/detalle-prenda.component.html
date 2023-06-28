@@ -15,24 +15,29 @@
 
 </div>
 
-<div class="similares">
-    <h3>Prendas similares</h3>
-    <div class="prendas">
-        <div class="prenda" *ngFor="let prenda of recomendadas">
-            <div></div>
-            <div class="elementos">
-                <div class="t-img">
-                    <div class="image">
-                        <img [src]="prenda.imagen">
-                        <h2>{{prenda.nombre}}</h2>
+
+
+    <h3 class="p-similares">Prendas similares</h3>
+    <div id="contenedor-principal">
+        <div class="flecha flecha-izquierda"></div>
+        <div class="prendas">
+            <div class="prenda" *ngFor="let prenda of recomendadas">
+                <div></div>
+                <div class="elementos">
+                    <div class="t-img">
+                        <div class="image">
+                            <img [src]="prenda.imagen">
+                            <h2>{{prenda.nombre}}</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="content">
-                    <p>{{prenda.descripcion}}</p>
-                    <h3>{{prenda.precio|currency:' COP ' }}</h3>
-                    <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                    <div class="content">
+                        <p>{{prenda.descripcion}}</p>
+                        <h3>{{prenda.precio|currency:' COP ' }}</h3>
+                        <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="flecha flecha-derecha"></div>
+      </div>
+   
