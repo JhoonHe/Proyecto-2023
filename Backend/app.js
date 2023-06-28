@@ -358,30 +358,53 @@ app.get("/categoria/:categoria", (req, res) => {
     })
 })
 
-
-app.get("/categorias/:categoria", (req, res) => {
+app.post("/categorias/:categoria", (req, res) => {
 
     categoria = req.params.categoria;
+    filtro = req.body.filtro;
 
     console.log(categoria);
+    console.log("a" + filtro);
 
-    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ?', [categoria], (error, resultado) => {
-        if (error) {
-            console.error(error);
-            return res.status(500).json({ error: 'Error en el servidor' });
-        }
+    if (filtro == undefined) {
 
-        let prendas = resultado.map((atributo) => ({
-            id_prenda: atributo.id_prenda,
-            nombre: atributo.nombre,
-            precio: atributo.precio,
-            imagen: atributo.imagen,
-            descripcion: atributo.descripcion
+        conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ?', [categoria], (error, resultado) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).json({ error: 'Error en el servidor' });
+            }
 
-        }));
+            let prendas = resultado.map((atributo) => ({
+                id_prenda: atributo.id_prenda,
+                nombre: atributo.nombre,
+                precio: atributo.precio,
+                imagen: atributo.imagen,
+                descripcion: atributo.descripcion
 
-        return res.status(200).json({ prendas: prendas });
-    })
+            }));
+
+            return res.status(200).json({ prendas: prendas });
+        })
+    } else {
+        conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? AND id_categoria_Prenda = ?', [categoria, filtro], (error, resultado) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).json({ error: 'Error en el servidor' });
+            }
+
+            let prendas = resultado.map((atributo) => ({
+                id_prenda: atributo.id_prenda,
+                nombre: atributo.nombre,
+                precio: atributo.precio,
+                imagen: atributo.imagen,
+                descripcion: atributo.descripcion
+
+            }));
+
+            return res.status(200).json({ prendas: prendas });
+        })
+    }
+
 });
 
 app.post("/detalle-prenda/:id", (req, res) => {

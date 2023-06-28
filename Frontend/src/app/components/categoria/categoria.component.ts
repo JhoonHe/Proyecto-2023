@@ -12,6 +12,8 @@ export class CategoriaComponent {
 
   nombreCategoria: string;
   ropa: any;
+  mensaje: any;
+  filtro: any;
 
   constructor(private client: ClientService, private router: Router, private routeActivate: ActivatedRoute) {
 
@@ -20,23 +22,35 @@ export class CategoriaComponent {
   ngOnInit(): void {
     this.nombreCategoria = this.routeActivate.snapshot.params["categoria"];
     console.log(this.nombreCategoria);
-
-    this.client.getRequest(`http://localhost:10101/categorias/${this.nombreCategoria}`).subscribe(
-      ((response: any) => {
-        this.ropa = response.prendas;  
+    this.client.postRequest(`http://localhost:10101/categorias/${this.nombreCategoria}`).subscribe(
+      (response: any) => {
+        this.ropa = response.prendas;
         console.log(response);
-        
-      }),
-      ((error: any) => {
+      },
+      (error: any) => {
         console.log(error.error.Status);
-
-      })
+      }
     );
   }
 
   verPrenda(id_prenda: number) {
     console.log(id_prenda);
     this.router.navigate(['/detalle-prenda', id_prenda]);
+  }
+
+  obtenerFiltro(filtro: any) {
+    this.filtro = filtro;
+    this.client.postRequest(`http://localhost:10101/categorias/${this.nombreCategoria}`, {
+      filtro: this.filtro
+    }).subscribe(
+      (response: any) => {
+        this.ropa = response.prendas;
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error.error.Status);
+      }
+    );
   }
 
 }

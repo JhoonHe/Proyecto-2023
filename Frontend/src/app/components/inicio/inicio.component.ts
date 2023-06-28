@@ -50,8 +50,8 @@ export class InicioComponent implements OnInit {
             setTimeout(() => {
               Swal.fire({
                 icon: 'success',
-                title: '¡Inicio de sección exitoso!',
-                width:'300px',
+                title: '¡Inicio de sesión exitoso!',
+                width: '300px',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -72,7 +72,7 @@ export class InicioComponent implements OnInit {
                 icon: 'error',
                 title: 'Oops...',
                 text: '¡Credenciales incorrectas!',
-                width:'300px',
+                width: '300px',
               })
             }, 5000)
           }
@@ -84,7 +84,7 @@ export class InicioComponent implements OnInit {
         icon: 'error',
         title: 'Oops...',
         text: '¡Verifique sus datos!',
-        width:'300px',
+        width: '300px',
       })
     }
   }

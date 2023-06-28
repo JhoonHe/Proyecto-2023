@@ -34,6 +34,7 @@
                     <div class="content">
                         <p>{{prenda.descripcion}}</p>
                         <h3>{{prenda.precio|currency:' COP ' }}</h3>
+                        <button (click)="verPrenda(prenda.id_prenda)">Ver prenda</button>
                     </div>
                 </div>
             </div>

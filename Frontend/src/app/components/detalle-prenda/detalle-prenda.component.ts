@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
-import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+
 @Component(
 
   {
@@ -26,7 +27,7 @@ export class DetallePrendaComponent implements OnInit {
 
   recomendadas: any;
 
-  constructor(private routeActivate: ActivatedRoute, private client: ClientService) {
+  constructor(private routeActivate: ActivatedRoute, private client: ClientService, private router: Router) {
 
   }
 
@@ -70,8 +71,11 @@ export class DetallePrendaComponent implements OnInit {
       })
     );
 
+  }
 
 
+  verPrenda(id_prenda: number) {
+    this.router.navigate(['/detalle-prenda', id_prenda]);
   }
 
   comprar() {
