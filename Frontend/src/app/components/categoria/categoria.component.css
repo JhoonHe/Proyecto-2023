@@ -1,4 +1,4 @@
-.todo{
+.todo {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -18,9 +18,9 @@
     width: 100%;
 }
 
-    
-    
-    
+
+
+
 
 
 .prendas {
@@ -41,9 +41,9 @@
     width: 340px;
     border-radius: 10px;
     border: #4CAF50 solid 2px;
-    
- 
-     
+
+
+
 }
 
 .prenda:hover {
@@ -60,11 +60,11 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-   
+
 }
 
 .elementos {
- 
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -72,32 +72,34 @@
     width: 100%;
     height: 480px;
     border-radius: 40px;
-    
-    
-   
+
+
+
 }
-   
+
 
 
 button {
 
     width: 60%;
     height: 40px;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
     transition-duration: 0.4s;
     border: none;
 
 }
 
-button:hover{
-    background-color: #4CAF50; /* Green */
+button:hover {
+    background-color: #4CAF50;
+    /* Green */
     color: white;
-} 
+}
 
 .elementos h3 {
     width: 100%;
@@ -105,10 +107,10 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.elementos h3 strong{
+.elementos h3 strong {
     font-size: 40px;
     padding-left: 10px;
 }
@@ -131,55 +133,71 @@ h2 {
     background-size: cover;
 }
 
-.image{ 
-   
-    width: 100%;
+.image {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.image img {
+    width: 90%;
     height: 200px;
 }
-.t-img{
+
+.t-img {
     width: 100%;
-    height: 300px;
+    height: auto;
+    /* background-color: rgb(230, 230, 230); */
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
     justify-content: space-around;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px 0;
 }
-.t-img h2{
+
+.t-img h2 {
     text-align: center;
     font-size: 25px;
 }
-.content{
+
+.content {
     width: 100%;
     height: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color:rgb(230, 230, 230);
+    background-color: rgb(230, 230, 230);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
 }
-.content p{
+
+.content p {
     padding: 13px;
     text-align: center;
 }
-h4{
+
+h4 {
 
     font-size: 50px;
     text-align: left;
     color: aliceblue;
     border-bottom: solid green 2px;
 }
-.precio{
+
+.precio {
     font-size: 25px;
 }
 
 /*Filtro*/
 
 
-.filtro{
-    position: sticky;   
+.filtro {
+    position: sticky;
     top: 160px;
     margin-top: 100px;
     border: 2px green solid;
@@ -188,26 +206,30 @@ h4{
     justify-content: space-around;
     height: 300px;
     align-items: center;
-    background-color:rgb(230, 230, 230);
+    background-color: rgb(230, 230, 230);
     flex-direction: column;
     width: 100%;
     margin-left: 20px;
-    
+    padding: 250px 0;
+    gap: 50px;
 }
-.ft{
-    
+
+.ft {
+
     width: 25%;
-   
+
 }
 
 
-.filtro ul li a{
+.filtro ul li a {
     color: green;
     text-align: center;
     text-decoration: none;
+    /* border-bottom: #4CAF50 2px solid; */
+    /* width: 100%; */
 }
 
-.filtro ul{
+.filtro ul {
     list-style: none;
     font-size: 20px;
     display: flex;
@@ -216,12 +238,12 @@ h4{
     gap: 20px;
 }
 
-.nav{
+.nav {
     /* border: 2px purple solid; */
     margin-top: 30px;
 }
 
-.menu{
+.menu {
     /* border: 2px rgb(158, 0, 5) solid; */
     width: 100%;
 }

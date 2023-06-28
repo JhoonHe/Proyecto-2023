@@ -29,7 +29,7 @@ app.listen(10101, () => {
 let conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'alejo123abc..',
+    password: '1234',
     database: 'db_proyecto'
 });
 
@@ -115,7 +115,7 @@ app.post('/login', function (req, res) {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error al iniciar sesión" });
-            
+
         }
 
         console.log("longitud" + results.length);
@@ -158,7 +158,7 @@ app.get('/nav', (req, res) => {
     console.log(correo);
     if (correo) {
 
-        
+
 
         conexion.query('SELECT nombre FROM usuario WHERE correo = ?', [correo], (error, resultado) => {
             if (error) {
@@ -219,7 +219,7 @@ app.get("/productos", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }))
 
@@ -245,7 +245,7 @@ app.get("/prendas/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -268,10 +268,10 @@ app.get("/detalle-prenda/:id", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            talla:atributo.talla,
-            color:atributo.color,
-            descripcion:atributo.descripcion,
-            estado:atributo.estado
+            talla: atributo.talla,
+            color: atributo.color,
+            descripcion: atributo.descripcion,
+            estado: atributo.estado
 
         }))
 
@@ -305,7 +305,7 @@ app.get("/categoria/:categoria", (req, res) => {
 
     console.log(categoria);
 
-    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 4', [categoria], (error, resultado) => {
+    conexion.query('SELECT * FROM prendas WHERE nombre_Categoria = ? ORDER BY RAND() LIMIT 5', [categoria], (error, resultado) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error en el servidor' });
@@ -316,7 +316,7 @@ app.get("/categoria/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -342,7 +342,7 @@ app.get("/categorias/:categoria", (req, res) => {
             nombre: atributo.nombre,
             precio: atributo.precio,
             imagen: atributo.imagen,
-            descripcion:atributo.descripcion
+            descripcion: atributo.descripcion
 
         }));
 
@@ -356,7 +356,7 @@ app.post("/detalle-prenda/:id", (req, res) => {
     console.log(session.correo);
     console.log(id);
 
-    conexion.query('INSERT INTO compras (correo_usuario, id_prenda) VALUES (?,?)',[session.correo,id], (error) => {
+    conexion.query('INSERT INTO compras (correo_usuario, id_prenda) VALUES (?,?)', [session.correo, id], (error) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ "Status": "Error en la compra" });

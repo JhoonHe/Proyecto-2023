@@ -1,7 +1,7 @@
 <div class="capa">
     <div *ngFor="let prenda of prenda" class="contenido">
         <div class="c-img">
-            <div class="imagen"> <img [src]="prenda.imagen" ngxImageZoom ></div>
+            <div class="imagen"> <img [src]="prenda.imagen"></div>
         </div>
         <div class="informacion">
             <p class="precio">{{prenda.precio|currency:' COP ' }}</p>
@@ -10,12 +10,12 @@
             <p class="talla"> TALLA : {{prenda.talla}}</p>
             <p class="color">COLOR : {{prenda.color}}</p>
             <!-- <p><strong>Talla:</strong> L</p> -->
-             <p class="estado"> {{prenda.estado}}/10</p>
+            <p class="estado"> {{prenda.estado}}/10</p>
             <div class="botones">
-                <button routerLink="/detalle-compra" (click)="comprar()"><span class="material-symbols-outlined">local_mall</span><strong>ADQUIRIR</strong></button>
+                <button routerLink="/detalle-compra" (click)="comprar()"><span
+                        class="material-symbols-outlined">local_mall</span><strong>ADQUIRIR</strong></button>
             </div>
         </div>
-    
+
     </div>
 </div>
-

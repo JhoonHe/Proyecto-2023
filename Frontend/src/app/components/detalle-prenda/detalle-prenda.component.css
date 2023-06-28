@@ -1,4 +1,4 @@
-.capa{
+.capa {
     width: 100%;
     height: 70vh;
     background: url("https://images5.alphacoders.com/130/1306752.jpg");
@@ -6,90 +6,93 @@
     align-items: center;
     justify-content: space-between;
 }
-.contenido{
+
+.contenido {
     margin: 50px 50px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-     height: 60vh;
-     /* gap: 20px; */
-     color: wheat
-
+    height: 60vh;
+    /* gap: 20px; */
+    color: wheat
 }
 
-.c-img{
+.c-img {
     width: 40%;
     height: 100%;
-    background-color:#d6d6d6a1 ; 
+    background-color: #d6d6d6a1;
     /* border-top-right-radius: 300px; */
     /* border-bottom-right-radius: 300px; */
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;  
-      
+    justify-content: center;
+
 }
 
 
-.c-img .imagen{
+.c-img .imagen {
     width: 70%;
     height: 70%;
-    
+
 }
 
-.c-img .imagen img{
+.c-img .imagen img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.c-img .oferta{
+.c-img .oferta {
     width: 40%;
     height: 100%;
     background-color: red;
-    
-    
+
+
 }
 
-.informacion{
+.informacion {
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100%;
     flex-direction: column;
-     background-color: #ffffff3a;
+    background-color: #ffffff3a;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    position:static;
-  
+    position: static;
+
 
 }
-.informacion h2{
+
+.informacion h2 {
     font-size: 40px;
-   
+
 }
 
 
-p{
+p {
     font-size: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-button{
-    
+button {
+
     width: 100%;
     height: 40px;
     border: none;
     background-color: none;
     border: 2px solid green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
-span{
+
+span {
     color: forestgreen;
     display: flex;
     text-align: center;
@@ -97,33 +100,36 @@ span{
     margin-right: 10px;
 }
 
-.precio{
-    
+.precio {
+
     font-size: 40px;
-    border-bottom:solid #ffffffcb 2px;
+    border-bottom: solid #ffffffcb 2px;
 }
 
-.talla, .color, .estado{
-    
-    font-size:large;
-    
+.talla,
+.color,
+.estado {
+
+    font-size: large;
+
 }
 
-.botones{
+.botones {
     height: 10vh;
     width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
 
-.desc{
+.desc {
     font-size: medium;
 }
-strong{
 
-    color:  green;
+strong {
+
+    color: green;
     display: flex;
     align-items: center;
     justify-content: center;
