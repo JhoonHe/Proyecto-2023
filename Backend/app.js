@@ -121,7 +121,7 @@ app.post('/login', function (req, res) {
         console.log("longitud" + results.length);
 
         if (results.length === 0) {
-            console.log("MALA");
+            // console.log("MALA");
             return res.status(401).json({ "Status": "Credenciales incorrectas" });
         }
 
@@ -142,7 +142,7 @@ app.post('/login', function (req, res) {
 app.get('/test-cookies', (req, res) => {
 
     let correo = req.session.correo;
-    console.log(correo);
+    // console.log(correo);
 
 
     if (correo) {
@@ -155,7 +155,7 @@ app.get('/test-cookies', (req, res) => {
 app.get('/nav', (req, res) => {
 
     let correo = req.session.correo;
-    console.log(correo);
+    // console.log(correo);
     if (correo) {
 
 
@@ -232,7 +232,7 @@ app.get("/prendas/:categoria", (req, res) => {
 
     categoria = req.params.categoria;
 
-    console.log(categoria);
+    // console.log(categoria);
 
     conexion.query('SELECT * FROM prendas where nombre_Categoria = ? ', [categoria], (error, resultado) => {
         if (error) {
@@ -271,11 +271,45 @@ app.get("/detalle-prenda/:id", (req, res) => {
             talla: atributo.talla,
             color: atributo.color,
             descripcion: atributo.descripcion,
-            estado: atributo.estado
+            estado: atributo.estado,
+            nombreCategoria: atributo.nombre_Categoria,
+            idCategoria: atributo.id_categoria_Prenda
 
         }))
 
+        // console.log(prendas);
+
         return res.status(200).json({ prendas: prendas });
+    })
+})
+
+app.post('/pendas-recomendadas', (req, res) => {
+    let idCategoria = req.body.idCategoria;
+    let nombreCategoria = req.body.nombreCategoria;
+    let idPrenda = req.body.idPrenda;
+
+    conexion.query('SELECT * FROM prendas where id_categoria_Prenda = ? AND nombre_Categoria = ? AND id_prenda != ?', [idCategoria, nombreCategoria, idPrenda], (error, resultado) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error en el servidor' });
+        }
+
+        let recomendadas = resultado.map((atributo) => ({
+            id_prenda: atributo.id_prenda,
+            nombre: atributo.nombre,
+            precio: atributo.precio,
+            imagen: atributo.imagen,
+            talla: atributo.talla,
+            color: atributo.color,
+            descripcion: atributo.descripcion,
+            estado: atributo.estado,
+            nombreCategoria: atributo.nombre_Categoria,
+            idCategoria: atributo.id_categoria_Prenda
+        }))
+
+        // console.log(prendas);
+
+        return res.status(200).json({ recomendadas: recomendadas });
     })
 })
 
